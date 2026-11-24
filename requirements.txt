@@ -1,0 +1,5 @@
+kivy>=2.3
+cryptography>=42
+argon2-cffi>=23
+Pillow>=10
+pytest>=8

@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.buildozer/
+bin/
+*.apk
+*.aab
+.eggs/
+*.egg-info/
+.venv/
+venv/
+.DS_Store
+Thumbs.db
