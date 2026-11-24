@@ -70,6 +70,8 @@ buildozer -v android debug
 | `icon.filename` | `assets/icon.png` | آیکون ساختهشده از تصویر پیوستی |
 | `android.minapi` | `24` | حداقل اندروید ۷٫۰ |
 | `android.api` | `35` | هدف ساخت با SDK 35 |
+| `android.ndk` | `25b` | NDK توصیهشده توسط نسخهٔ پینشدهٔ p4a |
+| `p4a.commit` | `37d272cc...` | جلوگیری از FFmpeg 8 ناسازگار با ffpyplayer 4.5.1 |
 | `android.permissions` | خالی | 전체 دسترسی به فایلها از طریق SAF انجام میشود |
 | `android.add_resources` | `provider_paths.xml` | محدود کردن FileProvider به فایلهای موقت |
 | `android.extra_manifest_application_arguments` | `provider.xml` | اضافه کردن provider به manifest |
@@ -89,7 +91,7 @@ buildozer -v android debug
 | مشکل | بررسی |
 |---|---|
 | Buildozer خطای Java/SDK میدهد | `%JAVA_HOME%` و SDK را طبق مستندات Buildozer تنظیم کنید یا از GitHub Actions استفاده کنید. |
-| خطای `libpostproc/postprocess.h` | بستهٔ `ffpyplayer_codecs` را حذف نگه دارید؛ نسخهٔ فعلی p4a هدرهای postproc را نصب نمیکند و پخش معمولی با codec پیشفرض FFmpeg/Android MediaCodec کار میکند. |
+| خطای `libpostproc/postprocess.h` یا `libavcodec/avfft.h` | از همان کامیت پینشدهٔ p4a و NDK 25b استفاده کنید؛ p4a develop جدیدتر FFmpeg 8 را میسازد که با ffpyplayer 4.5.1 ناسازگار است. |
 | آیکون قدیمی نمایش داده میشود | پوشهٔ `.buildozer` را حذف و دوباره بسازید. |
 | قرنطینه شدن فایل توسط آنتیوایروس | از مسیر پروژهٔ محلی یا کانال رسمی استفاده کنید؛ APK debug امضای توسعه دارد. |
 | قفل نشدن هنگام بازگشت از Recent Apps | تست باید روی دستگاه واقعی تکمیل شود؛ رفتار شبیهساز معتبر نیست. |
