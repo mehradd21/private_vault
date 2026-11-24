@@ -6,6 +6,9 @@ on:
     tags:
       - "v*"
 
+env:
+  PYTHONFORANDROID_PREREQUISITES_INSTALL_INTERACTIVE: 0
+
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -23,11 +26,8 @@ jobs:
       - name: Install buildozer and cython
         run: python3 -m pip install --upgrade pip buildozer cython==0.29.37
 
-      - name: Accept Android SDK licenses
-        run: yes | buildozer android update
-
       - name: Build APK
-        run: buildozer -v android debug
+        run: yes | buildozer -v android debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

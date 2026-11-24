@@ -12,7 +12,9 @@ version = 1.0
 
 # cryptography -> AES-256-GCM, argon2-cffi -> Argon2id, pyjnius -> Android API,
 # Pillow -> thumbnails, ffpyplayer -> in-app video playback.
-requirements = python3,kivy,cryptography,argon2-cffi,pyjnius,Pillow,ffpyplayer,ffpyplayer_codecs
+# ffpyplayer_codecs is intentionally omitted: current p4a/ffmpeg builds do not
+# install libpostproc headers, which makes ffpyplayer fail to compile with it.
+requirements = python3,kivy,cryptography,argon2-cffi,pyjnius,Pillow,ffpyplayer
 
 icon.filename = %(source.dir)s/assets/icon.png
 presplash.filename = %(source.dir)s/assets/icon.png
