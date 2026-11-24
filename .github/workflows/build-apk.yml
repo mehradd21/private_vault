@@ -26,6 +26,21 @@ jobs:
       - name: Install buildozer and cython
         run: python3 -m pip install --upgrade pip buildozer cython==0.29.37
 
+      - name: Prepare python-for-android
+        run: |
+          git clone -b develop --single-branch https://github.com/kivy/python-for-android.git .p4a
+          git -C .p4a checkout 37d272cc42f1ca0d0143743ccd3949cca56dfd5d
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('.p4a/pythonforandroid/recipe.py')
+          s = p.read_text()
+          old = '"build[virtualenv]", "pip"'
+          new = '"build[virtualenv]==1.4.2", "pip"'
+          if old not in s:
+              raise SystemExit('p4a patch target not found')
+          p.write_text(s.replace(old, new, 1))
+          PY
+
       - name: Build APK
         run: yes | buildozer -v android debug
 

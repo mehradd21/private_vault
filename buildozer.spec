@@ -6,7 +6,7 @@ package.domain = org.mehrad
 
 source.dir = .
 source.include_exts = py,png,jpg,jpeg,kv,atlas,xml
-source.exclude_dirs = tests,bin,.buildozer,docs,__pycache__
+source.exclude_dirs = tests,bin,.buildozer,.p4a,docs,__pycache__
 
 version = 1.0
 
@@ -21,6 +21,8 @@ requirements = python3,kivy,cryptography,argon2-cffi,pyjnius,Pillow,ffpyplayer
 # known-good state with FFmpeg 6.1.2 and ffpyplayer 4.5.1.
 p4a.branch = develop
 p4a.commit = 37d272cc42f1ca0d0143743ccd3949cca56dfd5d
+# The workflow clones and patches this checkout to pin build==1.4.2.
+p4a.source_dir = .p4a
 
 icon.filename = %(source.dir)s/assets/icon.png
 presplash.filename = %(source.dir)s/assets/icon.png
