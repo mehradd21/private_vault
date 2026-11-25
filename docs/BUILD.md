@@ -93,6 +93,7 @@ buildozer -v android debug
 | Buildozer خطای Java/SDK میدهد | `%JAVA_HOME%` و SDK را طبق مستندات Buildozer تنظیم کنید یا از GitHub Actions استفاده کنید. |
 | خطای `libpostproc/postprocess.h` یا `libavcodec/avfft.h` | از همان کامیت پینشدهٔ p4a و NDK 25b استفاده کنید؛ p4a develop جدیدتر FFmpeg 8 را میسازد که با ffpyplayer 4.5.1 ناسازگار است. |
 | خطای `Backend 'setuptools.build_meta' is not available` یا `No module named 'math'` هنگام ساخت cryptography | workflow بستهٔ `build==1.4.2` را در `.p4a/pythonforandroid/recipe.py` پین میکند؛ در ساخت محلی همان پین را اعمال کنید یا از همان workflow استفاده کنید. |
+| خطای `Android Gradle plugin requires Java 17 to run` | در GitHub Actions از `actions/setup-java@v4` با `java-version: '17'` استفاده کنید؛ در ساخت محلی `JAVA_HOME` را به JDK 17 تنظیم کنید. |
 | آیکون قدیمی نمایش داده میشود | پوشهٔ `.buildozer` را حذف و دوباره بسازید. |
 | قرنطینه شدن فایل توسط آنتیوایروس | از مسیر پروژهٔ محلی یا کانال رسمی استفاده کنید؛ APK debug امضای توسعه دارد. |
 | قفل نشدن هنگام بازگشت از Recent Apps | تست باید روی دستگاه واقعی تکمیل شود؛ رفتار شبیهساز معتبر نیست. |
